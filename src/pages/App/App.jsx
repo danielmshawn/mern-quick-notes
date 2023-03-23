@@ -15,15 +15,20 @@ export default function App() {
 
   useEffect(function() {
     async function getNotes() {
-      const allNotes = await notesAPI.getNotes();
+      const allNotes = await notesAPI.getAllNotes();
       setNotes(allNotes)
       console.log( "All Notes inside useEffect", allNotes)
     }
     getNotes();
-  }, [user])
+  }, [])
+
+  async function addNote(note) {
+    const newNote = await notesAPI.createNote(note)
+    setNotes([...notes, newNote])
+  }
 
   const noteList = notes.map((note, idx) => (
-    <NotesListPage note={note} key={idx} />
+    <NotesListPage note={note.text} key={idx} />
   ));
 
   return (
@@ -32,8 +37,8 @@ export default function App() {
       { user ?
           <>
             <NavBar user={user} setUser={setUser} />
-            { notes.length === 0 ? <h2>No Notes Yet</h2> : <div>{noteList}</div> }
-            <NewNoteForm setNotes={setNotes}/>
+            <div>{noteList}</div> 
+            <NewNoteForm addNote={addNote}/>
             
           </>
           :

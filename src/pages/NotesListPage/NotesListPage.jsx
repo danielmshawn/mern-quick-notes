@@ -1,6 +1,6 @@
 
 
-export default function OrderHistoryPage({ note }) {
+export default function NotesListPage({ note }) {
   // async function handleCheckToken() {
   //   const expDate = await checkToken();
   //   console.log(expDate);
