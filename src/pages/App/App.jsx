@@ -28,7 +28,7 @@ export default function App() {
   }
 
   const noteList = notes.map((note, idx) => (
-    <NotesListPage note={note.text} key={idx} />
+    <NotesListPage note={note} key={idx} />
   ));
 
   return (

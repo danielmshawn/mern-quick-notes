@@ -8,7 +8,7 @@ export default function NotesListPage({ note }) {
  
   
   return (
-   <h2>{ note }</h2>
+   <h2>{ note.text }</h2>
   )
   
   }
