@@ -37,13 +37,18 @@ export default function App() {
       { user ?
           <>
             <NavBar user={user} setUser={setUser} />
-            <div>{noteList}</div> 
             <NewNoteForm addNote={addNote}/>
+            <div>{noteList}</div> 
             
           </>
           :
           <AuthPage setUser={setUser} />
-      }
+        }
+            
+        { notes.length === 0 ?
+          "No Notes Yet!" : ""
+  
+        }
     </main>
   );
 }

@@ -8,6 +8,7 @@ module.exports = {
 
 async function index(req, res) {
     try {
+        req.body.user = req.user._id
         const notes = await Note.find({user: req.user._id});
         res.json(notes);
     } catch (err) {
